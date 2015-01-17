@@ -112,6 +112,11 @@ public class SerialConsoleActivity extends Activity {
         finish();
     }
 
+    void showStatus(TextView theTextView, String theLabel, boolean theValue){
+        String msg = theLabel + ": " + (theValue ? "enabled" : "disabled") + "\n";
+        theTextView.append(msg);
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -130,9 +135,18 @@ public class SerialConsoleActivity extends Activity {
             try {
                 sPort.open(connection);
                 sPort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
-                sPort.setDTR(!sPort.getDTR());
-                String msg = "DTR: " + (sPort.getDTR() ? "enabled" : "disabled");
-                mDumpTextView.append(msg);
+
+                sPort.setDTR(true); // necessary for Arduino Leonardo (ATmega32u4)
+
+                showStatus(mDumpTextView, "CD - Carrier Detect", sPort.getCD());
+                showStatus(mDumpTextView, "CTS - Clear To Send", sPort.getCTS());
+                showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
+                showStatus(mDumpTextView, "DTR - Data Terminal Ready", sPort.getDTR());
+                showStatus(mDumpTextView, "DSR - Data Set Ready", sPort.getDSR());
+                showStatus(mDumpTextView, "RI - Ring Indicator", sPort.getRI());
+                showStatus(mDumpTextView, "RTS - Request To Send", sPort.getRTS());
+
+
             } catch (IOException e) {
                 Log.e(TAG, "Error setting up device: " + e.getMessage(), e);
                 mTitleTextView.setText("Error opening device: " + e.getMessage());
