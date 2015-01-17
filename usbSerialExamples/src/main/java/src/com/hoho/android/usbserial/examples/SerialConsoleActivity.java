@@ -130,6 +130,9 @@ public class SerialConsoleActivity extends Activity {
             try {
                 sPort.open(connection);
                 sPort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+                sPort.setDTR(!sPort.getDTR());
+                String msg = "DTR: " + (sPort.getDTR() ? "enabled" : "disabled");
+                mDumpTextView.append(msg);
             } catch (IOException e) {
                 Log.e(TAG, "Error setting up device: " + e.getMessage(), e);
                 mTitleTextView.setText("Error opening device: " + e.getMessage());
