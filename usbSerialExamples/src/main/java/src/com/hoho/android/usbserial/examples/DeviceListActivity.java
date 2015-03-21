@@ -200,7 +200,8 @@ public class DeviceListActivity extends Activity {
     }
 
     private void showConsoleActivity(UsbSerialPort port) {
-        SerialConsoleActivity.show(this, port);
+        //SerialConsoleActivity.show(this, port);
+        SentinelActivity.show(this, port);
     }
 
 }
