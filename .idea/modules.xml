@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/usb-serial-for-android.iml" filepath="$PROJECT_DIR$/usb-serial-for-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usb-serial-for-android.iml" filepath="$PROJECT_DIR$/usb-serial-for-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usbSerialExamples/usbSerialExamples.iml" filepath="$PROJECT_DIR$/usbSerialExamples/usbSerialExamples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RFCxSentinel.iml" filepath="$PROJECT_DIR$/RFCxSentinel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sentinel/Sentinel.iml" filepath="$PROJECT_DIR$/Sentinel/Sentinel.iml" />
       <module fileurl="file://$PROJECT_DIR$/usbSerialForAndroid/usbSerialForAndroid.iml" filepath="$PROJECT_DIR$/usbSerialForAndroid/usbSerialForAndroid.iml" />
     </modules>
   </component>

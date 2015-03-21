@@ -1,1 +1,1 @@
-include ':usbSerialExamples', ':usbSerialForAndroid'
+include ':Sentinel', ':usbSerialForAndroid'

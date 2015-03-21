@@ -1,0 +1,6 @@
+/Users/Joe/Desktop/RFCxSentinel/Sentinel/build/intermediates/classes/debug
+/Users/Joe/Desktop/RFCxSentinel/Sentinel/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-4cdfd1238ae375383737255ee37b17600f6486cc.jar
+/Users/Joe/Desktop/RFCxSentinel/Sentinel/build/intermediates/pre-dexed/debug/classes-58349893feed8887e6c5d0df9a5335d4c7acdad3.jar
+/Users/Joe/Desktop/RFCxSentinel/Sentinel/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-b57c3133614d77bdf4a504ad0bfe32e477994f46.jar
+/Users/Joe/Desktop/RFCxSentinel/Sentinel/build/intermediates/pre-dexed/debug/classes-6be034f5af75dfcfaa10fbadc0b300482b7df716.jar
+/Users/Joe/Desktop/RFCxSentinel/Sentinel/build/intermediates/pre-dexed/debug/classes-39f7c941e8108b16d1f699792d510406796408c6.jar

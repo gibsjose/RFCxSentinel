@@ -9,7 +9,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/usbSerialExamples" />
+            <option value="$PROJECT_DIR$/Sentinel" />
             <option value="$PROJECT_DIR$/usbSerialForAndroid" />
           </set>
         </option>
