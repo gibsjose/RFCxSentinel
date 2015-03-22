@@ -1,10 +1,25 @@
+#include "Diagnostics.h"
+
+Diagnostics_t Diagnostics;
+
 void setup() {
-  // put your setup code here, to run once:
+  //Initialize Diagnostics structure
+  InitializeDiagnostics(&Diagnostics);
+  
+  //Initialize serial port
   Serial.begin(115200);
+  
+  //Initialize Timers, etc...
+  //...
+  
+  //Initialize ADC
+  //...
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  Serial.print("160.2,3.704,102.4,5.012,24.6,48");
+  //Serial.print("160.2,3.704,102.4,5.012,24.6,48");
+  GetDiagnostics(&Diagnostics);
+  SendDiagnostics(Diagnostics);
   delay(1000);
 }
+
