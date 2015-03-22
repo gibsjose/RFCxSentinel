@@ -3,6 +3,7 @@ package org.rfcx.sentinel;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 import android.os.Bundle;
@@ -148,23 +149,28 @@ public class SentinelActivity extends Activity {
             values[2] = Output Current (mA)
             values[3] = Output Voltage (V)
             values[4] = Temperature (C)
-            values[5] = Humidity (RHS)
+            values[5] = Humidity (RH)
          */
         String[] values = message.split(",");
 
-        mInputCurrentValue.setText(values[0] + " mA");
-        mInputVoltageValue.setText(values[1] + " V");
-        mOutputCurrentValue.setText(values[2] + " mA");
-        mOutputVoltageValue.setText(values[3] + "V");
-        mTemperatureValue.setText(values[4] + " C");
-        mHumidityValue.setText(values[5] + " % RH");
+        if(values.length >= 6) {
+            mStatus.setTextColor(Color.GREEN);
+            mInputCurrentValue.setText(values[0] + " mA");
+            mInputVoltageValue.setText(values[1] + " V");
+            mOutputCurrentValue.setText(values[2] + " mA");
+            mOutputVoltageValue.setText(values[3] + "V");
+            mTemperatureValue.setText(values[4] + " C");
+            mHumidityValue.setText(values[5] + " % RH");
+        } else {
+            mStatus.setTextColor(Color.RED);
+        }
     }
 
     /**
      * Starts the activity, using the supplied driver instance.
      *
-     * @param context
-     * @param driver
+     * @param context the Context
+     * @param port the USB Serial port
      */
     static void show(Context context, UsbSerialPort port) {
         sPort = port;
