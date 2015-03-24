@@ -1,25 +1,32 @@
 #include "Diagnostics.h"
 
+char buffer[1024];
 Diagnostics_t Diagnostics;
 
 void setup() {
   //Initialize Diagnostics structure
   InitializeDiagnostics(&Diagnostics);
-  
+
   //Initialize serial port
   Serial.begin(115200);
-  
+
   //Initialize Timers, etc...
   //...
-  
+
   //Initialize ADC
   //...
+
+  //Seed random number generator
+  randomSeed(analogRead(0));
 }
 
 void loop() {
-  //Serial.print("160.2,3.704,102.4,5.012,24.6,48");
+  //Take measurements
   GetDiagnostics(&Diagnostics);
-  SendDiagnostics(Diagnostics);
+
+  //Send measurements
+  SendDiagnostics(&Diagnostics, buffer);
+
+  //Delay 5 seconds
   delay(1000);
 }
-
