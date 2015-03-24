@@ -20,8 +20,8 @@ import java.util.concurrent.Executors;
 
 public class SentinelActivity extends Activity {
     private final String TAG = SentinelActivity.class.getSimpleName();
-    private final long BEGIN_FLAG = 0xBB;
-    private final long END_FLAG = 0xEE;
+    //private final long BEGIN_FLAG = 0xBB;
+    //private final long END_FLAG = 0xEE;
 
     private static UsbSerialPort sPort = null;
 
@@ -102,6 +102,11 @@ public class SentinelActivity extends Activity {
 
             try {
                 sPort.open(connection);
+
+                //115200 Baud rate
+                //8 data bits
+                //1 stop bit
+                //No parity bit
                 sPort.setParameters(115200, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
             } catch (IOException e) {
                 Log.e(TAG, "Error setting up device: " + e.getMessage(), e);
@@ -156,7 +161,8 @@ public class SentinelActivity extends Activity {
         String[] values = message.split(",");
 
         //Ensure the length is correct (8), and use framing
-        if((values.length >= 8) && (Long.parseLong(values[0]) == BEGIN_FLAG) && (Long.parseLong(values[7]) == END_FLAG)) {
+        //if((values.length >= 8) && (Long.parseLong(values[0]) == BEGIN_FLAG) && (Long.parseLong(values[7]) == END_FLAG)) {
+        if(values.length >= 8) {
                 mStatus.setTextColor(Color.GREEN);
                 mInputCurrentValue.setText(values[1] + " mA");
                 mInputVoltageValue.setText(values[2] + " V");
@@ -166,6 +172,8 @@ public class SentinelActivity extends Activity {
                 mHumidityValue.setText(values[6] + " % RH");
         } else {
             mStatus.setTextColor(Color.RED);
+            //mStatus.setText(message);
+            //mInputCurrentValue.setText("Length: " + values.length);
         }
     }
 
